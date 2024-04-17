@@ -56,7 +56,7 @@ while True:
                             print(f"Удаляем {i[0]}")
                             rw.delRecord(i[0])
                     elif menuItem2 == "2":
-                        fileName = input("Введите имя файла с расширением,\nосторожно, файл будет затёрт:")
+                        fileName = input("Введите имя файла или нажмите ввод,\nпо умолчанию export.csv:")
                         if fileName == "":
                             fileName = "export.csv"
                         with open(fileName, "w",encoding="utf-8",newline='') as csvfile:
