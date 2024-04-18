@@ -76,7 +76,10 @@ while True:
         with open("phones.csv", "r",encoding="utf-8",newline='') as csvfile:
             reader = csv.reader(csvfile, delimiter=';')
             res = list()
+            count = 1
             for row in reader:
                 res.append(row)
+                print(f"{count}\t", end="")
                 print(*row)
+                count+=1
         print("---Конец списка---\n")
