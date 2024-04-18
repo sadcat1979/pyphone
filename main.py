@@ -3,7 +3,7 @@ import recordworks as rw
 
 exitToMainMenu = True
 while True:
-    print("Главное меню\n\n1.Добавление записи\n2.Поиск/Удаление/Экспорт записи\n3.Вывод всего справочника\nЛюбой другой символ - выход из программы\n")
+    print("Главное меню\n\n1.Добавление записи\n2.Поиск/Удаление/Экспорт по выборке\n3.Вывод всего справочника и экспорт по номеру\nЛюбой другой символ - выход из программы\n")
     menuItem = input("\nВведите пункт меню: ")
     if menuItem not in ['1','2','3']:
         print("ВсегО хорошегО")
@@ -83,3 +83,14 @@ while True:
                 print(*row)
                 count+=1
         print("---Конец списка---\n")
+        numStr = input("Введите номер строки или любой другой символ для выхода в меню,\nрезультат будет в export.csv:")
+        validStr = ""
+        for i in numStr:
+            if i in ['0','1','2','3','4','5','6','7','8','9']:
+                validStr +=i
+        if validStr!="":
+            numStr = int(validStr)-1
+            if numStr>-1 and numStr<len(res):
+                with open("export.csv", "w",encoding="utf-8",newline='') as csvfile:
+                    writer = csv.writer(csvfile,delimiter=';',dialect="excel")
+                    writer.writerow(res[numStr])
