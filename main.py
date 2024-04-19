@@ -1,6 +1,11 @@
 import csv
 import recordworks as rw
 
+def baseInit():
+    file = open("phones.csv", "a", encoding="utf-8")
+    file.close()
+
+baseInit()
 exitToMainMenu = True
 while True:
     print("Главное меню\n\n1.Добавление записи\n2.Поиск/Удаление/Экспорт по выборке\n3.Вывод всего справочника и экспорт по номеру\nЛюбой другой символ - выход из программы\n")
